@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password App</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  #app {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  #label {
+    font-size: 18px;
+    color: black;
+  }
+  #input {
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <label id="label" for="input">Enter password</label>
+  <input type="text" id="input" autocomplete="off">
+</div>
+
+<script>
+  const input = document.getElementById('input');
+  const label = document.getElementById('label');
+  const app = document.getElementById('app');
+
+  input.addEventListener('input', function() {
+    switch(input.value) {
+      case 'password':
+        label.style.color = 'red';
+        label.textContent = 'Password is incorrect';
+        break;
+      case 'incorrect':
+        label.textContent = 'Try again';
+        break;
+      case 'again':
+        label.textContent = 'Please try again later';
+        break;
+      case 'again later':
+        app.innerHTML = '<span style="font-size: 100px;">😂</span>';
+        break;
+      //default:
+      //  label.style.color = 'black';
+      //  label.textContent = 'Enter password';
+    }
+  });
+</script>
+</body>
+</html>
